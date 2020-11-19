@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Feed from "./Feed";
+import Modal from "./Modal";
+import Sidebar from "./Sidebar";
+import Widgets from "./Widgets";
 
 function App() {
+  const [selectedImg, setSelectedImg] = useState(null);
+  const [darkmode, setDarkmode] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    // Bem
+    <>
+      <div className={`App ${darkmode ? "App__dark" : ""}`}>
+        <div
+          className="App__inner"
+          style={{
+            filter: selectedImg ? "blur(4px)" : "blur(0)",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          {/* SideBar */}
+          <Sidebar />
+          {/* Feed */}
+          <Feed setSelectedImg={setSelectedImg} setDarkmode={setDarkmode} />
+          {/* Widget */}
+          <Widgets />
+        </div>
+      </div>
+      {selectedImg && (
+        <Modal imageUrl={selectedImg} setSelectedImg={setSelectedImg} />
+      )}
+    </>
   );
 }
 

@@ -1,0 +1,125 @@
+.post {
+    display: flex;
+    border-bottom: 1px solid var(--twitter-background);
+    flex-direction: column;
+    width: 100% !important;
+    padding: 20px 10px 10px 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.post__avatar {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+
+.post__header {
+    margin-left: 60px;
+}
+
+.post__header h3 {
+    color: var(--font-color);
+    display: flex;
+    align-items: flex-end;
+    font-family: 'Acme', sans-serif;
+
+}
+
+.post__header h3 span {
+    margin-left: 5px;
+}
+
+.post__headerDescription {
+    margin-left: 60px;
+    margin-top: 8px;
+    color: var(--post-desc);
+}
+
+.post__body {
+    width: 100%;
+    max-width: 100%;
+}
+
+.post__body>img {
+    border-radius: 20px !important;
+    padding: 20px 0;
+    padding-left: 20px;
+    width: calc(100% - 40px);
+    max-width: 520px;
+    object-fit: cover;
+    object-position: center;
+    max-height: 400px !important;
+    cursor: pointer;
+    filter: invert(0.05);
+    transition: all 300ms ease;
+}
+
+.post__body>img:hover {
+    filter: invert(0);
+}
+
+.post__footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    border-top: 1px solid var(--twitter-background);
+    padding: 10px 70px 0px;
+}
+
+.post__footer .MuiSvgIcon-root {
+    cursor: pointer;
+}
+
+.post__badge {
+    color: var(--twitter-color);
+    font-size: 20px !important;
+    object-position: bottom;
+    align-self: baseline;
+    margin-bottom: -2px;
+}
+
+.post__headerSpecial,
+.post__headerTime {
+    font-size: 14px;
+    color: var(--font-color);
+}
+
+.post_icon {
+    display: inline-flex;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 16px;
+    padding: 5px;
+    color: var(--font-color);
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.post_icon:nth-child(2):hover {
+    color: rgb(10, 163, 77);
+    transition: all 250ms linear;
+    background-color: rgba(10, 163, 77, 0.4);
+}
+
+.post_icon:nth-child(3):hover {
+    transition: all 250ms linear;
+    color: rgb(216, 66, 66);
+    background-color: rgba(216, 66, 66, 0.5);
+}
+
+.post_icon:nth-child(1):hover,
+.post_icon:nth-child(4):hover {
+    color: var(--twitter-color);
+    background-color: var(--twitter-background);
+    transition: all 250ms linear;
+}
+
+@media(max-width: 630px) {
+    .post {
+        max-width: 500px;
+        /* margin-right: 20px; */
+    }
+}

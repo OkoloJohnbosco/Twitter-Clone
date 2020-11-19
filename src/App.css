@@ -1,38 +1,52 @@
+:root {
+  --twitter-color: #50b7f5;
+  --twitter-background: #e6ecf0;
+}
+
 .App {
-  text-align: center;
+  width: 100%;
+  transition: color 250ms ease-in, background-color 250ms ease-in;
+  --bg-color: #fff;
+  --font-color: #444;
+  --sidebar-profile: #434343;
+  --sidebar-options: #e8f5fe;
+  --post--desc: rgb(64, 91, 95);
+  background-color: var(--bg-color);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App.App__dark {
+  --font-color: #fff;
+  --bg-color: rgb(21, 32, 43);
+  --sidebar-profile: #fff;
+  --sidebar-options: hsla(203, 89%, 64%, 30%);
+  --post-desc: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App__inner {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 100vh;
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 10px;
+  /* font-family: 'Acme', sans-serif !important; */
+  transition: blur 200ms ease-in-out;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 90%;
+
 }
 
-.App-link {
-  color: #61dafb;
+h1,
+h2,
+h3,
+h4 {
+  font-weight: lighter;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+
+@media(max-width: 500px) {
+  .App {
+    justify-content: center;
+    padding: 0 20px;
+    overflow-x: hidden;
   }
 }
