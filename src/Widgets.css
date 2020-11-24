@@ -6,7 +6,7 @@
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    /* scroll-behavior: smooth; */
+    scroll-behavior: smooth;
 }
 
 /* Hide scroolbar for chrome, safari and opera */
@@ -49,8 +49,15 @@
     font-family: inherit;
 }
 
+.widget__padding {
+    padding: 20px;
+    padding-left: 0;
+}
+
 .widgets__widgetContainer {
-    margin-left: 30px;
+    margin-left: 20px;
+    padding: 10px;
+    padding-right: 0;
 }
 
 @media(max-width: 1000px) {

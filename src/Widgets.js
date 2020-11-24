@@ -4,10 +4,11 @@ import {
   TwitterTimelineEmbed,
   TwitterShareButton,
   TwitterTweetEmbed,
-} from "react-twitter-embed";
+} from "react-twitter-embed/dist/index";
 import SearchIcon from "@material-ui/icons/Search";
+import Loader from "./Loader";
 
-function Widgets() {
+function Widgets({ darkmode }) {
   return (
     <div className="widget">
       <div className="widgets__input">
@@ -18,15 +19,22 @@ function Widgets() {
       <div className="widgets__widgetContainer">
         <h2>What's Happening?</h2>
 
-        <TwitterTweetEmbed tweetId={"858551177860055040"} />
-        <TwitterShareButton
-          url={"https://facebook.com/cleverprogrammer"}
-          option={{ text: "#reactjs is awesome", via: "cleverqazi" }}
+        <TwitterTweetEmbed
+          tweetId={"1329391842660638721"}
+          placeholder={<Loader />}
         />
+        <div className="widget__padding">
+          <TwitterShareButton
+            url={"https://web.facebook.com/johnbosco.kizito.9"}
+            option={{ text: "#reactjs is awesome", via: "johnBosco" }}
+          />
+        </div>
 
         <TwitterTimelineEmbed
           sourceType="profile"
           screenName="JohnboscoOkolo"
+          theme={"dark"}
+          placeholder={<Loader />}
         />
       </div>
     </div>
@@ -34,22 +42,3 @@ function Widgets() {
 }
 
 export default Widgets;
-
-// let words = "abc#d###c";
-
-// const clearAllHashes = (word) => {
-//   if (word) {
-//     let arr = word.split("");
-//     let note = [];
-//     for (let i = 0; i <= arr.length - 1; i++) {
-//       if (arr[i] !== "#") {
-//         note.push(arr[i]);
-//       } else {
-//         note.pop();
-//       }
-//     }
-//     return note.join("");
-//   } else {
-//     return "";
-//   }
-// };

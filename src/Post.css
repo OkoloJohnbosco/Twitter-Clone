@@ -120,6 +120,29 @@
 @media(max-width: 630px) {
     .post {
         max-width: 500px;
-        /* margin-right: 20px; */
+        padding-right: 0 !important;
+    }
+
+    .post__body {
+        max-width: 480px !important;
+    }
+
+    .post__body>img {
+        padding: 20px 0;
+        padding-left: 15px;
+    }
+}
+
+@media(max-width: 600px) {
+
+    .post__body {
+        max-width: 450px !important;
+    }
+}
+
+@media(max-width: 574px) {
+
+    .post__body {
+        max-width: 430px !important;
     }
 }

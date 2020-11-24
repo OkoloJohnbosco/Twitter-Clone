@@ -42,7 +42,7 @@ function TweentBox() {
         </div>
         <div className="tweetBox__imageUrl">
           <Input
-            style={{ width: "calc(100% - 100px)" }}
+            style={{ width: "calc(100% - 30px)" }}
             className="tweetBox__imageInput"
             placeholder="Enter Image url"
             type="text"

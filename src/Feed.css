@@ -1,7 +1,7 @@
 .feed {
-    flex: 0.44;
+    flex: 0.45;
     border-right: 1px solid var(--twitter-background);
-    min-width: fit-content;
+    min-width: max-content;
     overflow-y: scroll;
     scroll-behavior: smooth !important;
     -ms-overflow-style: none;
@@ -63,6 +63,11 @@
     .feed {
         flex: 0.6;
         max-width: 500px;
-        margin-right: 10px;
+    }
+}
+
+@media(max-width: 500px) {
+    .feed {
+        max-width: 400px;
     }
 }

@@ -1,26 +1,15 @@
 import { Avatar } from "@material-ui/core";
 import React, { forwardRef } from "react";
-import Moment from "react-moment";
 import "./Post.css";
 import StarsIcon from "@material-ui/icons/Stars";
 import CommentIcon from "@material-ui/icons/Comment";
 import RepeatIcon from "@material-ui/icons/Repeat";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import PublishIcon from "@material-ui/icons/Publish";
-import { motion } from "framer-motion";
 
 const Post = forwardRef(
   (
-    {
-      displayName,
-      userName,
-      verified,
-      text,
-      image,
-      createdAt,
-      avatar,
-      setSelectedImg,
-    },
+    { displayName, userName, verified, text, image, avatar, setSelectedImg },
     ref
   ) => {
     const setImage = (e) => {
@@ -39,9 +28,6 @@ const Post = forwardRef(
               <span className="post__headerSpecial">
                 {verified && <StarsIcon className="post__badge" />} @{userName}
               </span>
-              {/* <span className="post__headerTime">
-                {createdAt && <Moment unix>{createdAt.seconds}</Moment>}
-              </span> */}
             </h3>
           </div>
           <div className="post__headerDescription">

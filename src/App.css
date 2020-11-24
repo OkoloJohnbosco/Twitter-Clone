@@ -1,20 +1,23 @@
 :root {
   --twitter-color: #50b7f5;
-  --twitter-background: #e6ecf0;
 }
 
 .App {
   width: 100%;
+  box-sizing: border-box;
   transition: color 250ms ease-in, background-color 250ms ease-in;
   --bg-color: #fff;
   --font-color: #444;
   --sidebar-profile: #434343;
   --sidebar-options: #e8f5fe;
+  --twitter-background: #e6ecf0;
   --post--desc: rgb(64, 91, 95);
   background-color: var(--bg-color);
+  overflow-x: hidden;
 }
 
 .App.App__dark {
+  --twitter-background: hsla(204, 25%, 92%, 30%);
   --font-color: #fff;
   --bg-color: rgb(21, 32, 43);
   --sidebar-profile: #fff;
@@ -24,15 +27,13 @@
 
 .App__inner {
   display: flex;
-  height: 100vh;
   max-width: 1300px;
+  height: 100vh;
   margin: auto;
   padding: 0 10px;
-  /* font-family: 'Acme', sans-serif !important; */
   transition: blur 200ms ease-in-out;
   justify-content: center;
-  width: 90%;
-
+  overflow-x: hidden;
 }
 
 h1,
@@ -44,9 +45,15 @@ h4 {
 
 
 @media(max-width: 500px) {
-  .App {
+  .App__inner {
     justify-content: center;
     padding: 0 20px;
-    overflow-x: hidden;
+    width: 90%;
+  }
+}
+
+@media(max-width: 450px) {
+  .App {
+    padding: 0 20px !important;
   }
 }
