@@ -1,11 +1,11 @@
 .sidebar {
     padding: 0 25px 0 15px;
-    flex: 0.20;
     border-right: 1px solid var(--twitter-background);
     min-width: 50px;
     padding-top: 20px;
     box-sizing: border-box;
     overflow: hidden;
+    height: 100vh;
 }
 
 .sidebar__tweet {
@@ -24,8 +24,10 @@
 .sidebar__twitterIcon {
     color: var(--twitter-color);
     font-size: 30px !important;
-    margin-left: 20px;
-    margin-bottom: 15px;
+    /* margin-left: 20px; */
+    /* margin-bottom: 15px; */
+    padding: 12px 20px;
+
 }
 
 .sidebar__profile {
@@ -64,18 +66,9 @@
     align-self: flex-start;
 }
 
-@media(max-width: 1000px) {
-    .sidebar__tweet {
-        display: none !important;
-    }
 
-    .sidebar {
-        flex: 0.1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 
+@media(max-width: 1280px) {
     .sidebar__profile {
         padding: 10px;
         width: fit-content;
@@ -91,25 +84,19 @@
     }
 
     .sidebar__twitterIcon {
-        margin-left: 10px;
+        padding: 12px;
     }
-}
 
-@media(max-width: 630px) {
     .sidebar {
-        padding-right: 10px;
-    }
-}
-
-
-@media(max-width: 600px) {
-    .sidebar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: space-between;
         padding-bottom: 40px;
     }
 
-    .sidebar__profile {
-        padding: 8px;
+    .sidebar__tweet {
+        display: none !important;
     }
 
     .sidebar__profile>.MuiAvatar-root {
@@ -118,8 +105,37 @@
     }
 }
 
-@media(max-width: 450px) {
+
+@media(max-width: 650px) {
     .sidebar {
-        display: none;
+        position: absolute;
+        background-color: var(--bg-color);
+        height: 100vh;
+        padding-left: 40px;
+        z-index: 600 !important;
+        transform: translateX(-700px);
+        width: max-content;
+        top: 0;
+        left: -10px;
+        align-items: flex-start;
+        transition: transform 300ms ease-in;
+    }
+
+    .sidebar__profile {
+        padding: 10px;
+        width: max-content;
+        box-sizing: border-box;
+    }
+
+    .sidebar__profile .sidebar__profileInfo {
+        display: block;
+    }
+
+    .sidebar__tweet {
+        display: block !important;
+    }
+
+    .sidebar.slideIn {
+        transform: translateX(0);
     }
 }

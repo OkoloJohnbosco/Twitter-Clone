@@ -12,9 +12,9 @@ import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { Button, Avatar } from "@material-ui/core";
 
-function Sidebar(props) {
+function Sidebar({sidebar}) {
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${sidebar ? "slideIn" : ""}`}>
       <TwitterIcon className="sidebar__twitterIcon" />
 
       <SidebarOption active text="Home" Icon={HomeIcon} />

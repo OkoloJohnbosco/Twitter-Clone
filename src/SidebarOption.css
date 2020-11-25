@@ -28,7 +28,7 @@
     padding: 12px 20px;
 }
 
-@media(max-width: 1000px) {
+@media(max-width: 1280px) {
     .sidebarOption>.MuiSvgIcon-root {
         padding: 12px;
     }
@@ -41,5 +41,11 @@
 @media(max-width: 600px) {
     .sidebarOption>.MuiSvgIcon-root {
         font-size: 20px;
+    }
+}
+
+@media(max-width: 650px) {
+    .sidebar__text {
+        display: block;
     }
 }

@@ -7,8 +7,9 @@ import { Button } from "@material-ui/core";
 import Brightness4OutlinedIcon from "@material-ui/icons/Brightness4Outlined";
 import { db } from "./Firebase";
 import FlipMove from "react-flip-move";
+import Backdrop from "./Backdrop";
 
-function Feed({ setSelectedImg, setDarkmode }) {
+function Feed({ setSelectedImg, setDarkmode, showSidebar, sidebar }) {
   const [posts, setPosts] = useState(null);
   const [error, setError] = useState(false);
   const feedRef = useRef(null);
@@ -17,35 +18,46 @@ function Feed({ setSelectedImg, setDarkmode }) {
     feedRef.current.querySelector(".tweetBox  input").focus();
   }, []);
 
-  // useEffect(() => {
-  //   const unsub = db
-  //     .collection("posts")
-  //     .orderBy("createdAt", "desc")
-  //     .onSnapshot(
-  //       (snapshot) => {
-  //         setPosts(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  //         setError(false);
-  //       },
-  //       (error) => {
-  //         setError(true);
-  //         console.log(error);
-  //       }
-  //     );
-  //   return () => unsub();
-  // }, [posts]);
+  useEffect(() => {
+    const unsub = db
+      .collection("posts")
+      .orderBy("createdAt", "desc")
+      .onSnapshot(
+        (snapshot) => {
+          setPosts(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+          setError(false);
+        },
+        (error) => {
+          setError(true);
+          console.log(error);
+        }
+      );
+    return () => unsub();
+  }, [posts]);
 
   const toggleDarkMode = (e) => {
     setDarkmode((prevState) => !prevState);
   };
 
+  const toggleSidebar = (e) => {
+    showSidebar((prevState) => !prevState);
+  };
+
   return (
     <div className="feed" ref={feedRef}>
+      {sidebar && <Backdrop close={() => showSidebar(false)} />}
       <div className="feed__header">
         <div className="feed__home">
           <h2>Home</h2>
+
           <Button className="feed__homeToggleBtn" onClick={toggleDarkMode}>
             <Brightness4OutlinedIcon />
           </Button>
+          <div className="feed__menu" onClick={toggleSidebar}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
       </div>
       <TweetBox />

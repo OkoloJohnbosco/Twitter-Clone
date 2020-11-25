@@ -33,8 +33,6 @@ function Widgets({ darkmode }) {
         <TwitterTimelineEmbed
           sourceType="profile"
           screenName="JohnboscoOkolo"
-          theme={"dark"}
-          placeholder={<Loader />}
         />
       </div>
     </div>
